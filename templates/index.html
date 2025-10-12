@@ -32,36 +32,53 @@
         alive."
       </p>
     </div>
-    <div class=".container-fluid pt-5">
+    <div class="container-fluid pt-5">
       <div class="row vh-100">
-        <div class="col-sm slide-in-bottom">
-          <div id="blog-posts" class="text-center">
-            <p class="fs-2 text-white m-0 p-0">Blog Posts</p>
+        <div
+          class="col d-flex flex-column justify-content-center align-items-center slide-in-bottom h-100"
+        >
+          <div id="blog-posts" class="text-center h-100 w-100">
+            <p class="fs-2 text-white">Blog Posts</p>
             <p class="fs-6 text-white">(Will be updated)</p>
-            <div class="container">
-              <div class="row">
-                <div class="col">
-                  <img
-                    src="{{url_for('static', filename='images/empathy.jpg')}}"
-                  />
-                </div>
-                <div class="col d-flex align-items-center">
-                  <p class="text-white">
-                    Empathy is a central ability in Disco Elysium. Contrary to
-                    the assumption that empathy is primarly a positive trait
-                    this idea is challenged by calling into question the
-                    negative effects that this skill could have on the player.
-                    <a href="/empathy">For more click here</a>
-                  </p>
+            <div
+              class="d-flex justify-content-center align-items-center position-relative w-100"
+            >
+              <div
+                class="flip-card position-relative"
+                style="width: 300px; height: 400px"
+              >
+                <div class="flip-card-inner position-relative w-100 h-100">
+                  <div class="empathy-front position-absolute w-100 h-100">
+                    <img
+                      src="{{ url_for('static', filename='images/empathy.jpg') }}"
+                      class="empathy-img img-fluid w-100 h-100 rounded"
+                      onmouseover="flipped_empathy()"
+                      style="object-fit: cover"
+                    />
+                  </div>
+                  <div
+                    class="empathy-back w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center bg-dark bg-opacity-75"
+                  >
+                    <p class="text-white m-3">
+                      Empathy is a central ability in Disco Elysium. Contrary to
+                      the assumption that empathy is primarily a positive trait,
+                      this idea is challenged by calling into question the
+                      negative effects that this skill could have on the player.
+                    </p>
+                    <a href="/empathy" class="text-light"
+                      >For more click here</a
+                    >
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-sm drop-from-top">
           <div id="central-info">
-            <p class="fs-2 text-center text-white">Center</p>
-            <p class="text-white pt-5">
+            <p class="fs-2 text-center text-white">Welcome!</p>
+            <p class="text-white text-center pt-5">
               A fan page for disco elysium to showcase artwork, blog posts, and
               have a hub for all things Disco Elysium.
             </p>
