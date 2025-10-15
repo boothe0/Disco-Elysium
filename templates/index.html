@@ -1,167 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Disco Elysium</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='styles.css') }}"
-    />
-  </head>
-  <body onload="slidein()" style="background-color: #191c1d">
-    <div class="text-center pt-5">
-      <div class="d-flex h-100">
-        <div class="align-self-start mr-auto ps-5">
-          <button type="button" class="align-self-start btn btn-secondary">
-            <a class="link-dark" href="/about"> About Author </a>
-          </button>
-        </div>
-      </div>
-
-      <h1 class="text-white">Disco Elysium</h1>
-      <p style="color: #9f96b8">
-        "No. This is somewhere to be. This is all you have, but it's still
-        something. Streets and sodium lights. The sky, the world. You're still
-        alive."
-      </p>
+{%extends "base.html"%} {%block homepage%}
+<div class="text-center pt-5">
+  <div class="d-flex">
+    <div class="align-self-start mr-auto ps-5">
+      <button type="button" class="align-self-start btn btn-secondary">
+        <a class="link-dark" href="/about"> About Author </a>
+      </button>
     </div>
-    <div class="container-fluid pt-5">
-      <div class="row vh-100">
+  </div>
+
+  <h1 class="text-white">Disco Elysium</h1>
+  <p style="color: #9f96b8">
+    "No. This is somewhere to be. This is all you have, but it's still
+    something. Streets and sodium lights. The sky, the world. You're still
+    alive."
+  </p>
+</div>
+<div class="container-fluid pt-5">
+  <div class="row vh-100">
+    <div
+      class="col d-flex flex-column justify-content-center align-items-center slide-in-bottom h-100"
+    >
+      <div id="blog-posts" class="text-center h-100 w-100">
+        <p class="fs-2 text-white">Blog Posts</p>
+        <p class="fs-6 text-white">(Will be updated)</p>
         <div
-          class="col d-flex flex-column justify-content-center align-items-center slide-in-bottom h-100"
+          class="d-flex justify-content-center align-items-center position-relative w-100"
         >
-          <div id="blog-posts" class="text-center h-100 w-100">
-            <p class="fs-2 text-white">Blog Posts</p>
-            <p class="fs-6 text-white">(Will be updated)</p>
-            <div
-              class="d-flex justify-content-center align-items-center position-relative w-100"
-            >
+          <div
+            class="flip-card position-relative"
+            style="width: 300px; height: 400px"
+          >
+            <div class="flip-card-inner position-relative w-100 h-100">
+              <div class="empathy-front position-absolute w-100 h-100">
+                <img
+                  src="{{ url_for('static', filename='images/empathy.jpg') }}"
+                  class="empathy-img img-fluid w-100 h-100 rounded"
+                  onmouseover="flipped_empathy()"
+                  style="object-fit: cover"
+                />
+              </div>
               <div
-                class="flip-card position-relative"
-                style="width: 300px; height: 400px"
+                class="empathy-back w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center bg-dark bg-opacity-75"
               >
-                <div class="flip-card-inner position-relative w-100 h-100">
-                  <div class="empathy-front position-absolute w-100 h-100">
-                    <img
-                      src="{{ url_for('static', filename='images/empathy.jpg') }}"
-                      class="empathy-img img-fluid w-100 h-100 rounded"
-                      onmouseover="flipped_empathy()"
-                      style="object-fit: cover"
-                    />
-                  </div>
-                  <div
-                    class="empathy-back w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center bg-dark bg-opacity-75"
-                  >
-                    <p class="text-white m-3">
-                      Empathy is a central ability in Disco Elysium. Contrary to
-                      the assumption that empathy is primarily a positive trait,
-                      this idea is challenged by calling into question the
-                      negative effects that this skill could have on the player.
-                    </p>
-                    <a href="/empathy" class="text-light"
-                      >For more click here</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm drop-from-top">
-          <div id="central-info">
-            <p class="fs-2 text-center text-white">Welcome!</p>
-            <p class="text-white text-center pt-5">
-              A fan page for disco elysium to showcase artwork, blog posts, and
-              have a hub for all things Disco Elysium.
-            </p>
-          </div>
-        </div>
-        <div class="col-sm">
-          <div id="artist's work" class="text-center text-white slide-in-right">
-            <p class="fs-2">Artist's Work</p>
-            <div class="container">
-              <div class="row">
-                <div class="col">
-                  <img
-                    src="{{url_for('static', filename='images/kim1.jpg')}}"
-                  />
-                  <a
-                    class="link-secondary"
-                    target="_blank"
-                    href="https://www.pinterest.com/pin/862157922457429852"
-                  >
-                    Link to pintrest
-                  </a>
-                </div>
-                <div class="col"></div>
-              </div>
-              <div class="row">
-                <div class="col"></div>
-                <div class="col">
-                  <img
-                    src="{{url_for('static', filename='images/kim2.jpg')}}"
-                  />
-                  <a
-                    class="link-secondary"
-                    target="_blank"
-                    href="https://www.pinterest.com/pin/703756187759018"
-                  >
-                    Link to pintrest
-                  </a>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <img
-                    src="{{url_for('static', filename='images/kim3.jpg')}}"
-                  />
-                  <a
-                    class="link-secondary"
-                    target="_blank"
-                    href="https://www.pinterest.com/pin/7388786884168824"
-                  >
-                    Link to pintrest
-                  </a>
-                </div>
-                <div class="col"></div>
-              </div>
-              <div class="row">
-                <div class="col"></div>
-                <div class="col">
-                  <img
-                    src="{{url_for('static', filename='images/kim4.jpg')}}"
-                  />
-                  <a
-                    class="link-secondary"
-                    target="_blank"
-                    href="https://www.pinterest.com/pin/7388786884168820"
-                  >
-                    Link to pintrest
-                  </a>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <img
-                    src="{{url_for('static', filename='images/kim5.jpg')}}"
-                  />
-                  <a
-                    class="link-secondary"
-                    target="_blank"
-                    href="https://www.pinterest.com/pin/16114511159831608"
-                  >
-                    Link to pintrest
-                  </a>
-                </div>
-                <div class="col"></div>
+                <p class="text-white m-3">
+                  Empathy is a central ability in Disco Elysium. Contrary to the
+                  assumption that empathy is primarily a positive trait, this
+                  idea is challenged by calling into question the negative
+                  effects that this skill could have on the player.
+                </p>
+                <a href="/empathy" class="text-light">For more click here</a>
               </div>
             </div>
           </div>
@@ -169,11 +56,92 @@
       </div>
     </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-  </body>
-</html>
+    <div class="col-sm drop-from-top">
+      <div id="central-info">
+        <p class="fs-2 text-center text-white">Welcome!</p>
+        <p class="text-white text-center pt-5">
+          A fan page for disco elysium to showcase artwork, blog posts, and have
+          a hub for all things Disco Elysium.
+        </p>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div id="artist's work" class="text-center text-white slide-in-right">
+        <p class="fs-2">Artist's Work</p>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <img class="rotating-pic" />
+              <a
+                class="link-secondary"
+                id="artist-credits0"
+                target="_blank"
+                href="https://www.pinterest.com/pin/862157922457429852"
+              >
+                Link to pintrest
+              </a>
+            </div>
+            <div class="col"></div>
+          </div>
+          <div class="row">
+            <div class="col"></div>
+            <div class="col">
+              <img class="rotating-pic" />
+              <a
+                class="link-secondary"
+                id="artist-credits1"
+                target="_blank"
+                href="https://www.pinterest.com/pin/703756187759018"
+              >
+                Link to pintrest
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <img class="rotating-pic" />
+              <a
+                class="link-secondary"
+                id="artist-credits2"
+                target="_blank"
+                href="https://www.pinterest.com/pin/7388786884168824"
+              >
+                Link to pintrest
+              </a>
+            </div>
+            <div class="col"></div>
+          </div>
+          <div class="row">
+            <div class="col"></div>
+            <div class="col">
+              <img class="rotating-pic" />
+              <a
+                class="link-secondary"
+                id="artist-credits3"
+                target="_blank"
+                href="https://www.pinterest.com/pin/7388786884168820"
+              >
+                Link to pintrest
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <img class="rotating-pic" />
+              <a
+                class="link-secondary"
+                id="artist-credits4"
+                target="_blank"
+                href="https://www.pinterest.com/pin/16114511159831608"
+              >
+                Link to pintrest
+              </a>
+            </div>
+            <div class="col"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock%}
