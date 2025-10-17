@@ -1,4 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from werkzeug.security import check_password_hash, generate_password_hash
+
 app = Flask(
     __name__,
     template_folder="../templates",
@@ -16,9 +18,19 @@ def about():
     return render_template("about.html")
 
 
-@app.route('/empathy')
+@app.route('/empathy', methods=['GET', 'POST'])
 def empathy():
-    return render_template("blog.html")
+
+    if request.form:
+        email = request.form['email']
+        password = request.form['password']
+        hashed_password_combo = generate_password_hash(password)
+
+        print("Recieved email: ", email)
+        print("Hashed Password ", hashed_password_combo)
+    return render_template("blog_signup.html")
+
+    return render_template("blog_signup.html")
 
 
 if __name__ == "__main__":

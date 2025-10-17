@@ -101,3 +101,11 @@ img {
     opacity: 1;
   }
 }
+
+ul li {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+p {
+  font-size: 20px;
+}

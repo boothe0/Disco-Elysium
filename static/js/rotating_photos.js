@@ -63,7 +63,6 @@ function rotateImages() {
 
       pic.classList.add("harry");
       pic.classList.remove("kim");
-      console.log("switched to harry");
       pic.classList.add("fade-in-rotating-pic");
     });
   } else {
@@ -73,7 +72,6 @@ function rotateImages() {
         kimImagesAndLinks[i]["link"];
       pic.classList.add("kim");
       pic.classList.remove("harry");
-      console.log("switched to kim");
       pic.classList.add("fade-in-rotating-pic");
     });
   }
@@ -81,9 +79,8 @@ function rotateImages() {
     document.querySelectorAll(".rotating-pic").forEach((pic) => {
       pic.classList.remove("fade-in-rotating-pic");
     });
-    console.log("removed fade-in class");
-  }, 3000);
+  }, 1000);
 }
 rotateImages();
-// needs to be double the timeout of the fade in class removal to allow for time
+// needs to be multiple the timeout of the fade in class removal to allow for time
 setInterval(rotateImages, 12000);
