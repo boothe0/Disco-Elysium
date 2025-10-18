@@ -1,14 +1,16 @@
 {%extends "base.html"%} {%block homepage%}
-<div class="text-center pt-5">
-  <div class="d-flex">
-    <div class="align-self-start mr-auto ps-5">
-      <button type="button" class="about-me align-self-start btn btn-secondary">
-        <a class="link-dark" href="/about"> About Author </a>
-      </button>
+<div class="text-center pt-3">
+  <div class="d-flex mobile-about-section">
+    <div class="about-me-section p-2 d-flex flex-column">
+      <a class="link-light about-me-link" href="/about"> About Author </a>
+      <img
+        class="align-self-start btn-custom-class"
+        src="/static/images/stock_dice.png"
+      />
     </div>
   </div>
 
-  <h1 class="text-white">Disco Elysium</h1>
+  <h1 class="text-white title-font">Disco Elysium</h1>
   <p style="color: #9f96b8">
     "No. This is somewhere to be. This is all you have, but it's still
     something. Streets and sodium lights. The sky, the world. You're still
@@ -42,13 +44,15 @@
               <div
                 class="empathy-back w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center bg-dark bg-opacity-75"
               >
-                <p class="text-white m-3">
+                <p class="text-white m-3" style="font-size: 23px">
                   Empathy is a central ability in Disco Elysium. Contrary to the
                   assumption that empathy is primarily a positive trait, this
                   idea is challenged by calling into question the negative
                   effects that this skill could have on the player.
                 </p>
-                <a href="/empathy" class="empathy text-light">For more click here</a>
+                <a href="/empathy" class="empathy text-light"
+                  >For more click here</a
+                >
               </div>
             </div>
           </div>
@@ -63,7 +67,7 @@
           A fan page for disco elysium to showcase artwork, blog posts, and have
           a hub for all things Disco Elysium.
         </p>
-        <p class="text-white">
+        <p class="text-white text-center">
           Disco Elysium was created in 2019 as a game without combat and only
           dialog choices to guide your playthrough. There are several emotions
           that serve as the skills of the main character, Harry Du Bois. Due to
@@ -87,9 +91,9 @@
           </li>
         </ul>
 
-        <p class="text-white">
-          All art is not created by me and is to the credit of those on pintrest
-          that I have linked below each image.
+        <p class="text-white text-center" style="font-size: 20px">
+          (All art is not created by me and is to the credit of those on
+          pintrest that I have linked below each image.)
         </p>
       </div>
     </div>

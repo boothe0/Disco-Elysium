@@ -43,7 +43,8 @@ if __name__ == "__main__":
         try:
             driver = webdriver.Chrome()
             driver.get(live_server_url)
-            about_me_button = driver.find_element(By.CLASS_NAME, 'about-me')
+            about_me_button = driver.find_element(
+                By.CLASS_NAME, 'about-me-link')
             blog_buttom = driver.find_element(By.CLASS_NAME, 'empathy')
             print("Testing blog button")
             about_me_button.click()

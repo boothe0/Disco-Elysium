@@ -30,8 +30,6 @@ def empathy():
         print("Hashed Password ", hashed_password_combo)
     return render_template("blog_signup.html")
 
-    return render_template("blog_signup.html")
-
 
 if __name__ == "__main__":
     app.run()

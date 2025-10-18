@@ -1,7 +1,20 @@
+/* built-in tags */
 body {
   overflow-x: hidden;
+  font-family: "Afacad Flux";
 }
-
+ul li {
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+p {
+  font-size: 30px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* custom class styles */
 .slide-in-bottom {
   position: relative;
   transform: translateX(-100%);
@@ -39,19 +52,14 @@ body {
   transform: translateX(0);
   opacity: 1;
 }
-img {
-  max-width: 100%;
-  height: auto;
-}
 
 .flip-card {
   background-color: transparent;
   width: 300px;
   height: 200px;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  perspective: 1000px;
 }
 
-/* This container is needed to position the front and back side */
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -61,12 +69,10 @@ img {
   transform-style: preserve-3d;
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
-/* Position the front and back side */
 .empathy-front,
 .empathy-back {
   transition: transform 0.8s ease;
@@ -76,12 +82,10 @@ img {
   height: 100%;
 }
 
-/* Style the front side (fallback if image is missing) */
 .empathy-front {
   color: black;
 }
 
-/* Style the back side */
 .empathy-back {
   transform: rotateY(180deg);
   background-color: rgba(0, 0, 0, 0.4);
@@ -93,6 +97,38 @@ img {
   animation: fadeIn 1s forwards;
 }
 
+.btn-custom-class {
+  background-image: url();
+  background-size: cover;
+  background-position: center;
+  width: 100px;
+  height: 100px;
+}
+
+.about-me-section {
+  transition: box-shadow 0.3s;
+}
+
+.about-me-section:hover {
+  box-shadow: 2px 2px 2px 2px black;
+}
+
+.title-font {
+  font-family: "BBH Sans Bartle", sans-serif;
+}
+/* media queries*/
+@media (max-width: 450px) {
+  .mobile-about-section {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 451px) {
+  .about-me-section {
+    margin-left: 50px;
+  }
+}
+/* animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -100,12 +136,4 @@ img {
   to {
     opacity: 1;
   }
-}
-
-ul li {
-  margin-bottom: 20px;
-  font-size: 18px;
-}
-p {
-  font-size: 20px;
 }
