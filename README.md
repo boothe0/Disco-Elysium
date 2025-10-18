@@ -12,4 +12,4 @@
 - JS
 - Flask (might change to more robust django)
 
-![disco_elysium_progress01](https://github.com/user-attachments/assets/92e58667-929c-4f3b-a716-97cdbe380154)
+![disco_elysium_progress02](https://github.com/user-attachments/assets/23662029-6cc0-4e36-bec5-c3e9124c0758)
