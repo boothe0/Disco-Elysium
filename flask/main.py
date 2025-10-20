@@ -39,11 +39,11 @@ def home():
 
         if user and check_password_hash(user.password, password):
             login_user(user)
-            return render_template("index.html")
+            return render_template("index.html", user_logged_in=True, user=user)
         else:
-            return render_template("index.html")
+            return render_template("index.html", user_logged_in=False)
     else:
-        return render_template("index.html")
+        return render_template("index.html", user_logged_in=False)
 
 
 @app.route('/about')
@@ -57,10 +57,13 @@ def empathy():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
+        display_name = request.form['display_name']
         hashed_password_combo = generate_password_hash(password)
 
         # Store it in the User model
-        user = User(email=email, password=hashed_password_combo)
+        user = User(email=email, password=hashed_password_combo,
+                    display_name=display_name)
+
         db.session.add(user)
         db.session.commit()
     return render_template("blog_signup.html")
