@@ -121,13 +121,24 @@ img {
   .mobile-about-section {
     justify-content: center;
   }
+  .nature {
+    max-width: 50%;
+  }
+  .button-flex {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 @media (min-width: 451px) {
   .about-me-section {
     margin-left: 50px;
   }
+  .nature {
+    max-width: 25%;
+  }
 }
+
 /* animations */
 @keyframes fadeIn {
   from {
