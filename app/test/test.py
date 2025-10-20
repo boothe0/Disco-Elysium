@@ -20,7 +20,9 @@ def test_form_input(live_server_url):
     email = driver.find_element(By.CLASS_NAME, 'email-input')
     email.send_keys("elizabethbooth05@gmail.com")
     password = driver.find_element(By.CLASS_NAME, 'password-input')
-    password.send_keys("password")
+    password.send_keys("123")
+    display_name = driver.find_element(By.CLASS_NAME, 'display-name-input')
+    display_name.send_keys("BoothGG")
     submit = driver.find_element(By.CLASS_NAME, 'submit-button')
     submit.click()
     print("Form submitted")
@@ -53,4 +55,6 @@ if __name__ == "__main__":
             print("Could not start webdriver.")
 
         live_server_url = 'http://127.0.0.1:5000/empathy'
+        test_form_input(live_server_url)
+        live_server_url = 'http://127.0.0.1:5000/'
         test_form_input(live_server_url)
