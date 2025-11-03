@@ -30,6 +30,7 @@
 
 ### Running local flask debug server for flask-email
 `pip install aiosmtpd`
+
 `python -m aiosmtpd -n -l localhost:1025` (make sure it is 1025 as that is what is set in main.py as the server to listen on)
 
 
