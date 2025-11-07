@@ -9,15 +9,9 @@
 - SQLite3 connected via SQLAlchemy for user information
 - Selenium testing updated regularly with modular functions for repeated use cases
 - Local debug server for Flask-email
-
-
-
-### Features (planned)
-- Email newsletter via Flask-email
-- Blog post feature that gets updated
-- Host on githubpages
-
-
+- User name will be displayed if they sign up as a supporter of the website
+- Deployed using gunicorn and nginx on ssh server
+ 
 ### Tech Stack
 - Flask
 - SQLite3
