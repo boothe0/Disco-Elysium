@@ -4,16 +4,24 @@ from flask_login import LoginManager, login_user, current_user, logout_user, log
 from models import User, db
 from flask_mail import Mail, Message
 import os
+from pathlib import Path
 
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 app = Flask(
     __name__,
-    template_folder="../templates",
-    static_folder="../static"
+    template_folder=str(BASE_DIR / "templates"),
+    static_folder=str(BASE_DIR / "static")
 )
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite3"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.secret_key = os.environ.get("SECRET_KEY", "dev_key_for_local_use")
+
+# Production configurations
+app.config.update(
+    SQLALCHEMY_DATABASE_URI=os.environ.get("DATABASE_URL", f"sqlite:///{BASE_DIR/'flask'/'db.sqlite3'}"),
+    SQLALCHEMY_TRACK_MODIFICATIONS=False,
+    SECRET_KEY=os.environ.get("SECRET_KEY", "dev_key_for_local_use"),  # Make sure to set this in production!
+    DEBUG=os.environ.get("FLASK_DEBUG", "False").lower() in ("true", "1"),
+)
 
 app.config.update(
     MAIL_SERVER=os.environ.get("MAIL_SERVER", "localhost"),
