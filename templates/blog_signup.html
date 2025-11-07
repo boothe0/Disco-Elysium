@@ -1,5 +1,5 @@
 {%extends "base.html"%} {%block form%}
-
+{%if not user_logged_in%}
 <form method="post" class="pb-5">
   <div class="form-group w-50 mx-auto">
     <label for="exampleInputEmail1" class="text-white">Email address</label>
@@ -33,4 +33,5 @@
 <button class="btn btn-dark">
   <a href="/" class="link-light"> Go to Home</a>
 </button>
+{%endif%}
 {%endblock%}

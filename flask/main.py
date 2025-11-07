@@ -32,6 +32,10 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "home"
 
+@app.context_processor
+def inject_user():
+    return dict(user_logged_in=current_user.is_authenticated)
+
 with app.app_context():
     db.create_all()
 mail = Mail(app)
@@ -45,6 +49,7 @@ def load_user(user_id):
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    users = User.query.all()
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
@@ -53,16 +58,21 @@ def home():
 
         if user and check_password_hash(user.password, password):
             login_user(user)
-            return render_template("index.html", user_logged_in=True, user=user)
+            return render_template("index.html", user=user, users=users)
         else:
-            return render_template("index.html", user_logged_in=False)
+            return render_template("index.html", users=users)
     else:
-        return render_template("index.html", user_logged_in=False)
+        return render_template("index.html", users=users)
 
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return render_template("base.html", logged_out=True)
 
 @app.route('/about')
 def about():
-
     return render_template("about.html")
 
 
@@ -74,14 +84,15 @@ def empathy():
         display_name = request.form['display_name']
         hashed_password_combo = generate_password_hash(password)
 
-        # Store it in the User model
         user = User(email=email, password=hashed_password_combo,
                     display_name=display_name)
 
         db.session.add(user)
         db.session.commit()
         send_email()
-    return render_template("blog_signup.html")
+        login_user(user)  # Log in the new user automatically
+
+    return render_template("blog_signup.html")  # No need to pass user_logged_in
 
 def send_email():
     try:

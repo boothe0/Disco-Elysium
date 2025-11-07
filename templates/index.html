@@ -73,9 +73,14 @@
 
     <div class="col-sm drop-from-top">
       <div id="central-info">
-        <p class="fs-2 text-center text-white">
-          Welcome! {%if user%} {{user.display_name}} {%endif%}
-        </p>
+        <div class="text-center">
+          <p class="fs-2 text-white mb-2">
+            Welcome! {%if user%} {{user.display_name}} {%endif%}
+          </p>
+          {% if user_logged_in %}
+          <a href="/logout" class="btn btn-secondary mb-3">Logout</a>
+          {% endif %}
+        </div>
         <p class="text-white text-center pt-5">
           A fan page for disco elysium to showcase artwork, blog posts, and have
           a hub for all things Disco Elysium.
@@ -137,6 +142,12 @@
             </button>
           </div>
         </form>
+      </div>
+      <div class="text-white">
+        <h1 class="text-center">Thank you to all who use this website!</h1>
+        {%for user in users%}
+          <p class="text-center">{{user.display_name}}</p>
+        {%endfor%}
       </div>
     </div>
     <div class="col-sm">
